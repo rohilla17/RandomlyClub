@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.viewModel.PostViewModel" />
+    </data>
+<RelativeLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:scaleType="fitXY"
+        app:imageURI="@{viewModel.getThumbnailImage()}"
+        android:id="@+id/thumbnail_image"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"/>
+
+    <TextView
+        android:gravity="center"
+        android:textSize="12dp"
+        tools:text="37 likes"
+        app:mutableText="@{viewModel.getLikes()}"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
+        android:layout_below="@+id/thumbnail_image"
+        android:drawableTint="@android:color/darker_gray"
+        android:drawableLeft="@drawable/ic_favorite_black_24dp"
+        android:id="@+id/likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginLeft="8dp"
+        android:gravity="center"
+        android:textSize="12dp"
+        app:mutableText="@{viewModel.getViews()}"
+        tools:text="37 likes"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
+        android:layout_toRightOf="@+id/likes"
+        android:layout_below="@+id/thumbnail_image"
+        android:drawableTint="@android:color/darker_gray"
+        android:drawableLeft="@drawable/ic_remove_red_eye_black_24dp"
+        android:id="@+id/views"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/views"
+        android:gravity="center"
+        android:textSize="12dp"
+        tools:text="37 likes"
+        app:mutableText="@{viewModel.getShares()}"
+        android:drawablePadding="8dp"
+        android:padding="8dp"
+        android:layout_below="@+id/thumbnail_image"
+        android:drawableTint="@android:color/darker_gray"
+        android:drawableLeft="@drawable/ic_share_black_24dp"
+        android:id="@+id/shares"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:fontFamily="monospace"
+        android:drawableTint="@android:color/holo_blue_dark"
+        android:gravity="center"
+        android:drawablePadding="8dp"
+        android:drawableLeft="@drawable/ic_event_black_24dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:mutableText="@{viewModel.getEventName()}"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:id="@+id/event_name"
+        tools:text="Heladasssslaaaaaaaaaaaa"
+        android:padding="8dp"
+        android:layout_below="@+id/likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:fontFamily="sans-serif-condensed"
+        android:drawableTint="@android:color/holo_blue_dark"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        app:mutableText="@{viewModel.getEventDate()}"
+        tools:text="27 October 2019"
+        android:padding="8dp"
+        android:layout_below="@+id/event_name"
+        android:drawableLeft="@drawable/ic_date_range_black_24dp"
+        android:id="@+id/event_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>
+</layout>
